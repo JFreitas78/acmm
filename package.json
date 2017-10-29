@@ -1,0 +1,21 @@
+{
+  "name": "acmm",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "express-recaptcha": "^3.0.0",
+    "morgan": "~1.8.1",
+    "node-recaptcha2": "^2.1.2",
+    "nodemailer": "^4.1.1",
+    "request": "^2.83.0",
+    "serve-favicon": "~2.4.2"
+  }
+}

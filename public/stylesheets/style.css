@@ -1,0 +1,484 @@
+/*
+Theme Name: 
+Theme URI: 
+Author: Jorge Freitas
+Author URI: 
+Description: 
+Version: V0.1
+License: 
+License 
+*/
+
+/* Import Font */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+@-webkit-viewport { width: device-width; }
+@-moz-viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+html{height:100%;padding:0px;margin:0px;}
+body{font-family: 'Open Sans', sans-serif;margin:0;padding:0;font-size:1em;color:#1d1d1d;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;}
+ul,li{list-style:none;padding:0;margin:0;}
+ul li{display:block;}
+ul li small {padding:5px 9px; background-color:#1C1C1C; border-radius:50%; color:#fff; float:left; margin-right:5px;margin-top:-3px}
+a{color:#fff;text-decoration:none;}
+a:active,a:hover {outline: 0;}
+img{max-width:100%;}
+footer{background-color:#111111;color:#fff;padding:20px;}
+section{position:relative;}
+h1{font-size:3.5em}
+h2{font-size:3em}
+h3{font-size:2.5em}
+h4{font-size:2em}
+h5{font-size:1.5em}
+h6{font-size:1em}
+p{text-align:center;font-size:1.5em;line-height:1.5em;margin-top: 0px;}
+
+/* Estrutura */
+.pull-left{float:left!important;}
+.pull-right{float:right!important;}
+.acmm-title{text-shadow: 2px 1px 2px #aaa;text-align:center;font-weight:bold;margin: 60px auto 70px;}
+.acmm-footer-link{display: flex;align-items: center;justify-content: end;}
+.acmm-footer-link p{margin: 0 auto;padding-left: 60px;}
+.acmm-footer-link img{float:right;width:25px;margin-left:10px;}
+.center-div{display:flex;justify-content:center;}
+.text-center{text-align:center!important;}
+.acmm-validation{text-align:center;color:#FFC036;margin:0;padding:0;}
+.acmm-error{background-image: url('../images/yellow-logo.png');background-size:contain;background-repeat:no-repeat;background-position: center;height:100vh;background-color:#C3C3C3;margin-top: -20px;}
+.acmm-border-validation{border:1px solid #FFC036;}
+.acmm-fields{display:none;}
+#acmm-name{display:none;}
+#acmm-email{display:none;}
+#acmm-message{display:none;}
+#acmm-recaptcha{display:none;}
+#acmm-recaptcha-verification{display:none;}
+#acmm-status-sucess-msg{display:none;}
+#acmm-status-valid-msg{display:none;}
+#acmm-status-fail-msg{display:none;}
+#acmm-open-modal{display:none;}
+
+
+/* ------------------------------------------
+  RESPONSIVE NAV STYLES
+--------------------------------------------- */
+
+.nav-collapse ul {margin: 0;padding: 0;width: 100%;display: block;list-style: none;}
+.nav-collapse li {width: 100%;display: block;}
+
+.js .nav-collapse {clip: rect(0 0 0 0);max-height: 0;position: absolute;display: block;overflow: hidden;zoom: 1;}
+
+.nav-collapse.opened {max-height: 9999px;}
+
+.disable-pointer-events {pointer-events: none !important;}
+
+.nav-toggle {-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-touch-callout: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;}
+
+@media screen and (min-width: 40em) {
+	.js .nav-collapse {position: relative;}
+	.js .nav-collapse.closed {max-height: none;}
+	.nav-toggle {display: none;}
+}
+
+/* ------------------------------------------
+  MASK
+--------------------------------------------- */
+
+.mask {-webkit-transition: opacity 300ms;-moz-transition: opacity 300ms;transition: opacity 300ms;background: rgba(0,0,0, .5);visibility: hidden;position: fixed;opacity: 0;z-index: 2;bottom: 0;right: 0;left: 0;top: 0;}
+
+.android .mask {-webkit-transition: none;transition: none;}
+
+.js-nav-active .mask {visibility: visible;opacity: 1;}
+
+@media screen and (min-width: 40em) {
+  .mask {display: none !important;opacity: 0 !important;}
+}
+
+
+/* ------------------------------------------
+  NAVIGATION STYLES
+--------------------------------------------- */
+
+.fixed {position: fixed;width: 100%;left: 0;top: 0;}
+.nav-collapse, .nav-collapse * {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+.nav-collapse, .nav-collapse ul {list-style: none;width: 100%;float: left;}
+
+@media screen and (min-width: 40em) {
+	.nav-collapse {float: right;width: auto;}
+}
+
+.nav-collapse li {float: left;width: 100%;}
+
+@media screen and (min-width: 40em) {
+  .nav-collapse li {width: auto;}
+}
+
+.nav-collapse a {-webkit-tap-highlight-color: rgba(0,0,0,0);text-decoration: none;padding: 0.7em 1em;color: #fff;width: 100%;float: left;}
+.nav-collapse a:active, .nav-collapse .active a {background: #FFC036;}
+
+@media screen and (min-width: 40em) {
+	.nav-collapse a {padding: 1.02em 2em;text-align: center;border-top: 0;float: left;margin: 0;}
+}
+
+.nav-collapse ul ul a {background: #FFC036;padding-left: 2em;}
+
+@media screen and (min-width: 40em) {
+  .nav-collapse ul ul a {display: none;}
+}
+
+/* ------------------------------------------
+  NAV TOGGLE STYLES
+--------------------------------------------- */
+
+@font-face {font-family: "responsivenav";src:url("../icons/responsivenav.eot");src:url("../icons/responsivenav.eot?#iefix") format("embedded-opentype"),url("../icons/responsivenav.ttf") format("truetype"),url("../icons/responsivenav.woff") format("woff"),url("../icons/responsivenav.svg#responsivenav") format("svg");font-weight: normal;font-style: normal;}
+
+.nav-toggle {-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-decoration: none;text-indent: -300px;position: relative;overflow: hidden;width: 60px;height: 55px;float: right;}
+
+.nav-toggle:before {
+  color: #fff; /* Edit this to change the icon color */
+  font: normal 28px/55px "responsivenav"; /* Edit font-size (28px) to change the icon size */
+  text-transform: none;
+  text-align: center;
+  position: absolute;
+  content: "\2261"; /* Hamburger icon */
+  text-indent: 0;
+  speak: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.nav-toggle.active:before {font-size: 24px;content: "\78"; /* Close icon */}
+
+/* ------------------------------------------
+  MODAL STYLES
+--------------------------------------------- */
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 390px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #FFC036;
+}
+/* ------------------------------------------
+  MODAL STYLES
+--------------------------------------------- */
+
+/* Header */
+header{border-bottom: 1px solid #eee; position: fixed;width: 100%;height:auto;left: 0;top: 0;z-index:3;background-color:#000000;width:100%;-webkit-transition: all 0.3s ease; -moz-transition: all 0.5s ease; -o-transition: all 0.5s ease;transition: all 0.5s ease;}
+.acmm-nav-wrap{margin: 0 0 15px; clear: both; overflow: hidden;}
+.acmm-nav-logo img{float: left;margin: 10px 10px 0;width:46px;}
+.acmm-nav-logo label{font-family: 'Baloo Tamma', cursive;color:#FFC036;font-weight:400;font-size:1.6em;float:left;margin-top: 1%;}
+.acmm-nav-main{float: right; margin:10px;}
+.acmm-nav-main li{display:inline-block;margin: 15px 0 0 20px;font-size:1.2em;}
+.acmm-nav-main li a{color:#fff;display: inline-block;border-bottom:3px solid transparent;text-decoration: none;}
+.acmm-nav-main li a:hover,a.active{border-bottom: 3px solid #FFC036;text-decoration: none;font-weight: 700;-webkit-transition: 800ms; -moz-transition: 800ms; -o-transition: 800ms; transition: 800ms;}
+.acmm-nav-main li a.active{border-bottom: 3px solid #FFC036;text-decoration: none;}
+
+/* Banner */
+#acmm-banner-container a:hover{font-weight: 600;-webkit-transition: 800ms; -moz-transition: 800ms; -o-transition: 800ms; transition: 800ms;}
+.acmm-banner-image{background-image: url('../images/banner-security-guard.jpg');background-size:cover;background-repeat:no-repeat;height:100vh;}
+.acmm-banner-image div:first-child{top:22%;}
+.vr-banner-image-position{position: absolute;bottom: 0px;z-index: 1;right: 0;}
+.acmm-banner-description{margin-left:180px;padding:25px;background-color:#000;-webkit-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75);-moz-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.60);box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.60);-khtml-opacity:.75;-moz-opacity:.75;-ms-filter:”alpha(opacity=75)”;filter:alpha(opacity=75);filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.75);opacity:.75;}
+.acmm-banner-description a{color:#ffffff;text-decoration: underline;}
+.acmm-banner-description a:hover,a.active{font-weight: 600;-webkit-transition: 800ms; -moz-transition: 800ms; -o-transition: 800ms; transition: 800ms;}
+.acmm-banner-description li{color:rgb(255, 255, 255);font-size:1.3em;}
+.acmm-banner-description li:first-child{margin-top:12px;}
+.acmm-banner-description span{font-size: 1.6em;}
+.acmm-banner-description-ini{color:#FFC036;font-weight:bold;}
+.acmm-banner-description-text{color:#5F8EC7;}
+.acmm-banner-space{margin-bottom:10px;}
+
+/* Sobre Nós */
+#acmm-about-us-container a{color:#000;text-decoration:underline;}
+#acmm-about-us-container a:hover{color:rgba(27, 27, 27, 0.8);font-weight: 600;-webkit-transition: 800ms; -moz-transition: 800ms; -o-transition: 800ms; transition: 800ms;}
+.acmm-about-us-background{background-image: url('../images/yellow-logo.png');background-size:contain;background-repeat:no-repeat;background-position: center;height:100vh;background-color:#C3C3C3;padding:30px 120px;}
+.acmm-about-us-title{font-weight:bold;text-align:center;text-shadow: 2px 2px 2px #6b6b6b;color:#1C1C1C;margin: 70px auto 40px;}
+.acmm-about-us-background p{color:#000;font-weight:bold;margin-bottom:30px;}
+
+/* Serviços */
+.acmm-services-background{height:100vh;background-color:#fff;padding:30px 80px;}
+.acmm-services-background p{font-weight:bold;margin-bottom:30px;}
+.acmm-services-rounded-image{background-color:#000000;position: absolute;left: 32%;right: 50%;margin: -120px auto;width: 110px;height: 110px;border-radius: 50%;}
+.acmm-services-info-box-header{padding: 0;display: flex;align-items: center;justify-content: center;}
+.acmm-services-info-box-body ul li h5{margin: 10px 0 20px 0;text-align:center;text-shadow: 2px 1px 2px #aaa;}
+.acmm-services-info-box-body ul li p{text-align:center;font-size:1.2em;line-height:1.5em;padding:0 15px;}
+.service-box{margin: 100px auto;}
+.service-box::after{content: "";display: block;position: absolute;width: 1px;background: #c1c1c1;top: 10px;height: 280px;top:-95px;}
+.service-box.after-visible-false::after{display: none;}
+
+/* Contato */
+.acmm-contact-background{-webkit-filter: blur(5px);-moz-filter: blur(5px);-o-filter: blur(5px);-ms-filter: blur(5px);filter: blur(5px);}
+.acmm-contact-image{background-image: url('../images/motorcycle-security.jpg');background-size:cover;background-repeat:no-repeat;height:100vh;}
+.acmm-contact-form{width:100%;height:100vh;display: flex;align-items: center;justify-content: left;}
+
+/* Rodapé */
+#acmm-footer-container p:first-child{font-size: 1.5 em;color:#ffffff;}
+#acmm-footer-container p{font-size: 0.5 em;color:#ffffff;}
+#acmm-footer-container hr{}
+
+/* Formulário Contato */
+#acmm-contact-form {background-color: rgba(72, 72, 72, 0.7);padding:20px 25px 35px;width: 450px;float: left;left: 60%;position: absolute;margin-top: 90px; margin-left: -260px;border-radius: 7px;-moz-border-radius: 7px;-webkit-border-radius: 7px;}
+.feedback-input {color:#3c3c3c;font-family: Helvetica, Arial, sans-serif;font-weight:500;font-size: 1em;border-radius: 0;line-height: 1em;background-color: #fbfbfb;padding: 5px 5px 5px 50px;width:100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;border: 3px solid rgba(0,0,0,0);}
+.feedback-input:focus{background: #fff;box-shadow: 0;border: 3px solid #FFC036;color: #FFC036;outline: none;padding: 5px 5px 5px 50px;}
+.focused{color:#FFC036;border:#FFC036 solid 3px;}
+
+/* Icons */
+.feedback-input.acmm-contact-name{background-image: url('../images/user.png'); background-size: 25px 25px;background-position: 10px 5px;background-repeat: no-repeat;}
+.feedback-input.acmm-contact-name:focus{background-image: url('../images/user.png'); background-size: 25px 25px;background-position: 10px 5px;background-repeat: no-repeat;}
+.feedback-input.acmm-contact-email{background-image: url('../images/email.png'); background-size: 25px 25px;background-position: 10px 5px;background-repeat: no-repeat;}
+.feedback-input.acmm-contact-email:focus{background-image: url('../images/email.png'); background-size: 25px 25px;background-position: 10px 5px;background-repeat: no-repeat;}
+.feedback-input.acmm-contact-message{background-image: url('../images/message.png'); background-size: 25px 25px;background-position: 10px 5px;background-repeat: no-repeat;}
+.feedback-input.acmm-contact-message:focus{background-image: url('../images/message.png'); background-size: 25px 25px;background-position: 10px 5px;background-repeat: no-repeat;}
+textarea{width: 100%;height: 125px;line-height: 120%;resize:vertical;}
+input:hover, textarea:hover, input:focus, textarea:focus{background-color:#ffffff;}
+#acmm-contact-btn-submit{float:left;width: 100%;border: #fbfbfb solid 4px;cursor:pointer;background-color: #FFC036;color:#ffffff;font-size:1.2em;padding:12px 0;-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;margin-top:-4px;font-weight:700;}
+#acmm-contact-btn-submit:hover{background-color: rgba(0,0,0,0);color: #FFC036;}
+.acmm-contact-submit:hover {background-color:#ffffff;color: #FFC036;}
+.acmm-contact-ease {width: 0px;height: 50px;background-color: #fbfbfb;-webkit-transition: .3s ease;-moz-transition: .3s ease;-o-transition: .3s ease;-ms-transition: .3s ease;transition: .3s ease;}
+.acmm-contact-submit:hover .ease{width:100%;background-color:#ffffff;} 
+.acmm-contact-recaptcha{display: flex;align-items: center;justify-content: center;margin-bottom: 25px;}
+
+/* MEDIA QUERIES */
+
+/* LG Desktops (=1200px) */
+
+@media (min-width:1200px) {
+
+}
+
+/* MD Desktops (>=992px) */
+
+@media (min-width:992px) and (max-width:1199px) {
+
+	/* Estrutura */
+	h1{font-size:3em;}
+    /* Banner */
+    .acmm-banner-image{background-image: url('../images/banner-security-guard-cut-md.jpg');}
+    .acmm-banner-image div:first-child{top: 16%;}
+	.acmm-banner-description{margin-left: 125px;}
+    .acmm-banner-description li{font-size:1em;}
+    .acmm-banner-description li:first-child{margin-top:10px;}
+    .acmm-banner-description span{font-size:1.2em;}
+	/* About us */
+	.acmm-about-us-background{padding: 25px 85px;}
+	.acmm-about-us-title{margin: 50px auto 20px;font-size:2.7em;}
+    /* Services */
+	.acmm-title {margin: 40px auto;font-size:2.7em;}
+	.acmm-services-background{padding:30px 0;}
+    .acmm-services-info-box-header{height:105px;padding:5px;}
+    .acmm-services-info-box-header img{width:80px;margin-top: 5px;}
+	.acmm-services-info-box-body ul li h5{font-size:1.3em;}
+	.acmm-services-info-box-body ul li  p{font-size:1em;font-weight:200;}
+	.service-box {margin: 125px auto;}
+	.service-box::after{height: 260px;top:-95px;}
+	/* Contato */
+	.acmm-contact-image{background-image: url('../images/motorcycle-security-cut-md.jpg');}
+	#acmm-contact-form {padding: 20px 25px 25px;width: 410px;left: 60%;margin-top: 70px;}
+	textarea{height: 110px;line-height: 110%;}
+	
+	@media (min-height:480px) and (max-height:540px) { #acmm-contact-form {margin-top: 50px;} }
+
+}
+
+/* Oculta borda amarela do ícone do menu quando minimizado */
+@media (max-width:639px) {
+	.acmm-nav-main li a:hover, a.active {border-bottom: none;}
+}
+
+/* SM Tablets (>=768px) */
+
+@media (min-width:768px) and (max-width:991px) {
+	
+	/* Estrutura */
+	.sm-clear-both{display:block;clear:both;float:none;}
+	.align-center{margin: 0 auto;}
+	h1{font-size:2.5em;}
+	/*Navbar*/
+	.nav-collapse a {padding: 1em 1.5em;}
+	/* Header */
+	.acmm-nav-logo img{width:42px;}
+	.acmm-nav-logo label{font-size:1.3em;margin-top: 2%;}
+    /* Banner */
+    .acmm-banner-image{background-image: url('../images/banner-security-guard-cut-md.jpg');}
+    .acmm-banner-image div:first-child{top: 16%;}
+	.acmm-banner-description{margin-left: 75px;}
+    .acmm-banner-description li{font-size:1em;}
+    .acmm-banner-description li:first-child{margin-top:10px;}
+    .acmm-banner-description span{font-size:1.2em;}
+	/* About us */
+	.acmm-about-us-background{padding: 25px 50px;}
+	.acmm-about-us-title{margin: 40px auto 10px;font-size: 2.2em;}
+	.acmm-about-us-background p {margin-bottom: 20px;}
+	p {font-size: 1.2em;line-height: 1.4em;}
+    /* Services */
+	.acmm-title {margin: 40px auto;font-size:2.7em;}
+	.acmm-services-background{padding:30px 0;height: 100%;}
+    .acmm-services-info-box-header{height:105px;padding:5px;}
+    .acmm-services-info-box-header img{width:80px;margin-top: 5px;}
+	.acmm-services-info-box-body ul li h5{font-size:1.3em;}
+	.acmm-services-info-box-body ul li  p{font-size:1em;font-weight:200;padding: 0 20px;}
+	.acmm-services-rounded-image {left: 27%;}
+	.service-box {margin: 125px auto;}
+	.service-box::after{height: 260px;top:-95px;}
+	.service-box.after-visible-false-sm::after{display: none;}
+	/* Contato */
+	.acmm-contact-image{background-image: url('../images/motorcycle-security-cut-md.jpg');}
+	#acmm-contact-form {padding: 20px 25px 25px;width: 410px;left: 50%;margin-top: 100px;margin-left: -240px;}
+	.feedback-input.acmm-contact-name {background-position: 10px 2px;}
+	.feedback-input.acmm-contact-email{background-position: 10px 2px;}
+	.feedback-input.acmm-contact-message{background-position: 10px 2px;}
+	textarea{height: 100px;line-height: 100%;}
+	
+	
+	@media (min-height:480px) and (max-height:540px) { #acmm-contact-form {margin-top: 68px;} }
+
+}
+
+/* XS Phones (>=440px) */
+
+@media (min-width:440px) and (max-width:767px)  {
+
+	/* Modal */
+	.modalDialog > div {width: 320px;}
+	/* Estrutura */
+	.sm-clear-both{display:block;clear:both;float:none;}
+	.align-center{margin: 0 auto;}
+	h1{font-size:2em;}
+	/*Navbar*/
+	.nav-collapse a {padding: 0.8em 1em;}
+	/* Header */
+	.acmm-nav-logo img{width:40px;}
+	.acmm-nav-logo label{font-size:1.3em;margin-top: 2%;}
+    /* Banner */
+    .acmm-banner-image{background-image: url('../images/banner-security-guard-cut-sm.jpg');}
+    .acmm-banner-image div:first-child{top: 17%;}
+	.acmm-banner-description{margin-left: 45px;padding: 12px 18px;}
+    .acmm-banner-description li{font-size:0.9em;}
+    .acmm-banner-description li:first-child{margin-top:8px;}
+    .acmm-banner-description span{font-size:1.1em;}
+	/* About us */
+	.acmm-about-us-background{padding: 25px 35px;height:100%;}
+	.acmm-about-us-title{margin: 40px auto 10px;font-size: 1.8em;}
+	.acmm-about-us-background p {margin-bottom: 20px;}
+	p {font-size: 1em;line-height: 1.3em;}
+    /* Services */
+	.acmm-title {margin: 40px auto;font-size:1.8em;}
+	.acmm-services-background{padding:30px 0;height: 100%;}
+    .acmm-services-info-box-header{width: 85px;height:85px;padding:5px;}
+    .acmm-services-info-box-header img{width:60px;margin-top: 5px;}
+	.acmm-services-info-box-body ul li h5{font-size:1.3em;}
+	.acmm-services-info-box-body ul li  p{font-size:1.1em;font-weight:200;padding: 0 20px;}
+	.acmm-services-rounded-image {left: 38%;}
+	.service-box {margin: 105px auto;}
+	.service-box::after{height: 240px;top:-95px;}
+	/* Contato */
+	.acmm-contact-image{background-image: url('../images/motorcycle-security-cut-md.jpg');}
+	#acmm-contact-form {padding: 20px 15px 20px;width: 350px;left: 50%;margin-top: 100px;margin-left: -190px;}
+	.feedback-input.acmm-contact-name {background-position: 10px 2px;}
+	.feedback-input.acmm-contact-email{background-position: 10px 2px;}
+	.feedback-input.acmm-contact-message{background-position: 10px 2px;}
+	textarea{height: 90px;line-height: 90%;}
+	
+	@media (min-width:440px) and (max-width:539px) {.acmm-services-rounded-image {left: 32%;}}
+	
+	@media (min-width:540px) and (max-width:650px) {.acmm-services-rounded-image {left: 35%;}}
+	
+	@media (min-height:440px) and (max-height:570px) {#acmm-contact-form {margin-top: 68px;}}
+
+}
+
+/* XS Phones (<440px) */
+
+@media (max-width:439px) {
+	
+	/* Modal */
+	.modalDialog > div {width: 260px;padding: 5px 10px 13px;}
+	/* Estrutura */
+	small{font-size: 12px;}
+	.sm-clear-both{display:block;clear:both;float:none;}
+	.align-center{margin: 0 auto;}
+	h1{font-size:1.5em;}
+	/*Navbar*/
+	.nav-collapse a {padding: 0.7em 0.9em;}
+	/* Header */
+	.acmm-nav-logo img{width:38px;}
+	.acmm-nav-logo label{font-size:1.3em;margin-top: 2%;}
+    /* Banner */
+    .acmm-banner-image{background-image: url('../images/banner-security-guard-cut-xs.jpg');}
+    .acmm-banner-image div:first-child{top: 15%;}
+	.acmm-banner-description{margin-left: 30px;padding: 12px 15px;}
+    .acmm-banner-description li{font-size:0.9em;}
+    .acmm-banner-description li:first-child{margin-top:8px;}
+    .acmm-banner-description span{font-size:1.1em;}
+	/* About us */
+	.acmm-about-us-background{padding: 25px 35px;height:100%;}
+	.acmm-about-us-title{margin: 40px auto 10px;font-size: 1.8em;}
+	.acmm-about-us-background p {margin-bottom: 20px;}
+	p {font-size: 1em;line-height: 1.3em;}
+    /* Services */
+	.acmm-title {margin: 40px auto;font-size:1.8em;}
+	.acmm-services-background{padding:30px 0;height: 100%;}
+    .acmm-services-info-box-header{width: 85px;height:85px;padding:5px;}
+    .acmm-services-info-box-header img{width:60px;margin-top: 5px;}
+	.acmm-services-info-box-body ul li h5{font-size:1.3em;}
+	.acmm-services-info-box-body ul li  p{font-size:1.1em;font-weight:200;padding: 0 75px;}
+	.acmm-services-rounded-image {left: 38%;}
+	.service-box {margin: 100px auto 5;}
+	.service-box::after{height: 240px;top:-95px;}
+	/* Contato */
+	.acmm-contact-image{background-image: url('../images/motorcycle-security-cut-md.jpg');}
+	#acmm-contact-form {padding: 20px 15px 20px;width: 80%;left: 50%;margin-top: 75px;margin-left: -43%;}
+	.feedback-input.acmm-contact-name {background-position: 10px 2px;}
+	.feedback-input.acmm-contact-email{background-position: 10px 2px;}
+	.feedback-input.acmm-contact-message{background-position: 10px 2px;}
+	textarea{height: 85px;line-height: 90%;}
+
+
+}
